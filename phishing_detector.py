@@ -350,7 +350,7 @@ def print_report(res, verbose=False):
 # ---------------------------------------------------------------------
 def evaluate(path, threshold, out_csv="results.csv"):
     rows = []
-    with open(path, newline="", encoding="utf-8") as f:
+    with open(path, newline="", encoding="utf-8-sig") as f:
         for r in csv.DictReader(f):
             rows.append((r["url"].strip(), int(r["label"])))
     tp = fp = tn = fn = 0

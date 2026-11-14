@@ -253,7 +253,7 @@ def read_rows(text):
 def load_default_csv():
     path = os.path.join(HERE, "test_urls.csv")
     if os.path.exists(path):
-        with open(path, encoding="utf-8") as f:
+        with open(path, encoding="utf-8-sig") as f:
             return f.read()
     return None
 
@@ -476,7 +476,7 @@ else:
     st.write("Runs the detector on a CSV with the columns **url** and **label** "
              "(1 = phishing, 0 = safe).")
     up = st.file_uploader("Upload a CSV (or leave empty to use test_urls.csv)", type="csv")
-    data = up.getvalue().decode("utf-8") if up is not None else default_csv
+    data = up.getvalue().decode("utf-8-sig") if up is not None else default_csv
     if data is None:
         st.info("Upload a CSV to see results.")
     else:
